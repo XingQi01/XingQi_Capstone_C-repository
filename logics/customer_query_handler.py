@@ -1,6 +1,8 @@
 import os
 import pandas as pd
+import openai
 from helper_functions import llm
+import streamlit as st
 import json  # Added for JSON handling
 
 # Load the Resale.csv file
@@ -34,7 +36,7 @@ def identify_hdb_flats(user_message):
     {unique_towns}
     {unique_price}
 
-    If no relevant courses are found, output an empty list.
+    If no relevant HDB flats are found, output an empty list.
 
     Ensure your response contains only all the relevant rows from df_hdb_resale \
     without any enclosing tags or delimiters.

@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 from helper_functions import llm
-from logics.hdb_resale_query import process_user_message
+from logics.hdb_resale_query_alternate import process_user_message
 from helper_functions.utility import check_password  
 
 # region <--------- Streamlit App Configuration --------->
@@ -12,7 +12,7 @@ st.set_page_config(
 )
 # endregion <--------- Streamlit App Configuration --------->
 
-st.title("HDB resale Application Procedure query")
+st.title("HDB resale Application Procedure query (non-crewai method)")
 
  # Check if the password is correct.  
 if not check_password():  
