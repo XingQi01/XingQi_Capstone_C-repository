@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-import openai
 from helper_functions import llm
 import json  # Added for JSON handling
 
