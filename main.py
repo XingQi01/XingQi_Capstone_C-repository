@@ -20,9 +20,9 @@ if not check_password():
     st.stop()
 
 form = st.form(key="form")
-form.subheader("You can use this query below to find available HDB resale flats from Singapore, by querying the location and price range. The table output will show you all the HDB resale flats based on the location that you queried.")
+form.subheader("You can use this query below to find available HDB resale flats in Singapore, by querying the location and price range. The table output will show you most information related to the HDB resale flats based on your query.")
 
-user_prompt = form.text_area("E.g. I want to buy HDB resale flats from Bukit Panjang and my budget is $500,000", height=100)
+user_prompt = form.text_area("E.g. I am looking for HDB resale flats in Tampines. I want to buy HDB resale flats from Bukit Panjang and my budget is SGD 500,000. I want to buy 16th floor unit in Ang Mo Kio, and my budget is SGD 300,000", height=100)
 
 # Check if the submit button is working
 if form.form_submit_button("Submit"):
@@ -38,7 +38,7 @@ if form.form_submit_button("Submit"):
         filtered_towns = filter_df(user_prompt)
         filtered_df = df_hdb_resale[df_hdb_resale['town'].isin(filtered_towns)]
         
-        st.write("Filtered DataFrame:")
+        st.write("Other units to consider:")
         st.write(filtered_df)
     except Exception as e:
         st.error(f"Error processing your request: {e}")

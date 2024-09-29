@@ -15,6 +15,12 @@ except FileNotFoundError:
 
 unique_towns = df_hdb_resale['town'].unique() if not df_hdb_resale.empty else []
 unique_price = df_hdb_resale['resale_price'].unique() if not df_hdb_resale.empty else []
+unique_flat_type = df_hdb_resale['flat_type'].unique() if not df_hdb_resale.empty else []
+unique_block = df_hdb_resale['block'].unique() if not df_hdb_resale.empty else []
+unique_street_name = df_hdb_resale['street_name'].unique() if not df_hdb_resale.empty else []
+unique_storey_range = df_hdb_resale['storey_range'].unique() if not df_hdb_resale.empty else []
+
+
 
 def identify_hdb_flats(user_message):
     delimiter = "####"
@@ -25,18 +31,28 @@ def identify_hdb_flats(user_message):
     the pair of {delimiter}.
 
     Decide if the query is relevant to the datasets in unique_towns and unique_price.
-    In unique_towns there are towns with HDB resale units. In unique_price there are prices of HDB resale units. 
+    In unique_towns there are towns with HDB resale units. In unique_price there are prices of HDB resale units. In unique_flat_type there are types of HDB flats.
+    In unique_block there are block numbers of HDB flats. In unique_street_name there are street names of HDB flats. In unique_storey_range there are storey ranges of HDB flats.
 
     For query on unique_towns, if there are any relevant HDB flats found, output the pair(s) of a) unique_towns and b) the range of unique_price from minimum to maximum. 
     Output all the relevant HDB flats from df_hdb_resale, and add serial number in column 1.
 
+    If the queried town does not belong to {unique_towns}, check if the town is also in the word part of {unique_street_name}. Otherwise, output to inform customer to refer to the list of 
+    towns in the page View_All_HDB_resale_wef_2017.
+
     For query on unique_price, if there are any relevant HDB flats found, output unique_towns where the unique_price ranges between 100000 below and 100000 above the 
     queried unique_price. Output all the relevant HDB flats from df_hdb_resale, and add serial number in column 1. 
 
+    For query on unique_storey_range, output the storey range closest to the queried storey.
+
     {unique_towns}
     {unique_price}
+    {unique_flat_type}
+    {unique_block}
+    {unique_street_name}
+    {unique_storey_range }
 
-    If no relevant HDB flats are found, output an empty list.
+    If no relevant HDB flats are found, output an empty list, and inform users to wait for new release.
 
     Ensure your response contains only all the relevant rows from df_hdb_resale \
     without any enclosing tags or delimiters.
@@ -58,10 +74,15 @@ def generate_response_based_on_hdb_flat(user_message, unique_towns):
     Follow these steps to answer the customer queries.
     The customer query will be delimited with a pair {delimiter}.
 
-    Step 1:{delimiter} If the user is asking about hdb towns, \
+    Step 1:{delimiter} If the user is asking about hdb town, or price, or flat types, or block or street name or storey range \
     understand the towns with hdb flats from the following list.
-    All available courses shown in the csv data below:
+    All available information is shown in the list below:
     {unique_towns}
+    {unique_price}
+    {unique_flat_type}
+    {unique_block}
+    {unique_street_name}
+    {unique_storey_range }
 
     Step 2:{delimiter} Use the information about hdb resale flats to \
     generate the answer for the customer's query.
@@ -74,6 +95,7 @@ def generate_response_based_on_hdb_flat(user_message, unique_towns):
     Your response should be comprehensive and informative to help the \
     customers make their decision.
     Complete with details with 5 recommended list of hdb flats for the customer to buy. 
+    In your response, you must lsit down the hdb town, price, flat types, block or street name and storey range for each hdb flat.
     Use Neural Linguistic Programming to construct your response.
 
     Use the following format:
