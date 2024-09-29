@@ -5,7 +5,6 @@ import json
 import requests
 from helper_functions import llm
 # Import the key CrewAI classes
-from crewai import Agent, Task, Crew
 
 # Load the environment variables
 # If the .env file is not found, the function will return `False`
