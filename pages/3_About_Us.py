@@ -8,7 +8,7 @@ st.set_page_config(
 # endregion <--------- Streamlit App Configuration --------->
 
 st.title("About this App")
-
+st.markdown('<p style="color:red;">For your info, I used crewai for 2.1 HDB resale application but it seems that Streamlit is unable to support it. Hence, I recreated 2.2 HDB resale application using non-crewai method. For your review please.</p>', unsafe_allow_html=True)
 st.write("This is a Streamlit App built by HDB that demonstrates how to use the OpenAI API to generate text completions to answer your queries related to HDB resale flats.")
 
 with st.expander("How to use this App"):
