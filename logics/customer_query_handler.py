@@ -95,7 +95,9 @@ def generate_response_based_on_hdb_flat(user_message, unique_towns):
     Your response should be comprehensive and informative to help the \
     customers make their decision.
     Complete with details with 5 recommended list of hdb flats for the customer to buy. 
-    In your response, you must lsit down the hdb town, price, flat types, block or street name and storey range for each hdb flat.
+    In your response, you must list down the hdb town, price, flat types, block or street name and storey range for each hdb flat.
+    If the queried town does not belong to {unique_towns}, check if the town is also in the word part of {unique_street_name}. Otherwise, output to inform customer to refer to the list of 
+    towns in the page View All HDB resale wef 2017.
     Use Neural Linguistic Programming to construct your response.
 
     Use the following format:
