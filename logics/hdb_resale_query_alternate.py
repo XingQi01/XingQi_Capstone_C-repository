@@ -38,7 +38,7 @@ def policy_query(user_message):
     For query related to {HDB_Terms_and_Conditions} and {HDB_Application_source}, provide the response based on these datasets
 
     If no relevant informations are found, output a relevant info from {HDB_Terms_and_Conditions} and {HDB_Application_source}, and ask users to check if 
-    it is correct. Tell them if it is not, ask to ask users to refer to HDB website at https://www.hdb.gov.sg/cs/infoweb/homepage. 
+    it is correct. Also, tell them that for the latest information, ask to ask users to refer to HDB website at https://www.hdb.gov.sg/cs/infoweb/homepage. 
 
     Ensure your response contains only all the relevant rows information from the two datasets \
     without any enclosing tags or delimiters.
