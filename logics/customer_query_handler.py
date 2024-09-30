@@ -37,8 +37,7 @@ def identify_hdb_flats(user_message):
     For query on unique_towns, if there are any relevant HDB flats found, output the pair(s) of a) unique_towns and b) the range of unique_price from minimum to maximum. 
     Output all the relevant HDB flats from df_hdb_resale, and add serial number in column 1.
 
-    If the queried town does not belong to {unique_towns}, check if the town is also in the word part of {unique_street_name}. Otherwise, output to inform customer to refer to the list of 
-    towns in the page View_All_HDB_resale_wef_2017.
+    If the queried town does not belong to {unique_towns}, check if the town is also in the word part of {unique_street_name}. 
 
     For query on unique_price, if there are any relevant HDB flats found, output unique_towns where the unique_price ranges between 100000 below and 100000 above the 
     queried unique_price. Output all the relevant HDB flats from df_hdb_resale, and add serial number in column 1. 
@@ -95,7 +94,7 @@ def generate_response_based_on_hdb_flat(user_message, unique_towns):
     Your response should be comprehensive and informative to help the \
     customers make their decision.
     Complete with details with 5 recommended list of hdb flats for the customer to buy. 
-    In your response, you must list down the hdb town, price, flat types, block or street name and storey range for each hdb flat.
+    In your response, you must list down the hdb town, price, flat types, block or street name and storey range for each hdb flat, ccording to df_hdb_resale.
     Use Neural Linguistic Programming to construct your response.
 
     Use the following format:
