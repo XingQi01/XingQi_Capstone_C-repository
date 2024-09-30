@@ -12,7 +12,7 @@ st.set_page_config(
 )
 # endregion <--------- Streamlit App Configuration --------->
 
-st.title("HDB resale Application Procedure query (non-crewai method)")
+st.title("HDB resale Application Procedure query")
 
  # Check if the password is correct.  
 if not check_password():  
