@@ -26,7 +26,7 @@ st.subheader("You can use this query below to find available HDB resale flats in
 st.markdown("""
 <p style='font-size:14px'>
 By querying information such as location, price, price range, street name, floor and floor range, 
-the table output will show you information related to the HDB resale flats based on your query. If you have a query on the location but did not have an output, please refer to the list of locations under the town column in hte View All HDB resale wef 2017 page.
+the table output will show you information related to the HDB resale flats based on your query. If you have a query on the location but did not have an output, please refer to the list of locations under the town column in the View All HDB resale wef 2017 page.
 </p>
 """, unsafe_allow_html=True)
 
